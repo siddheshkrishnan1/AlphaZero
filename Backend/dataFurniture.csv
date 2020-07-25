@@ -1,0 +1,21 @@
+rooms,sqft,hoarder,access_unit,space_req
+1,750,2,0,Five by Ten
+2,1000,7,1,Ten by Twenty
+1,800,6,0,Five by Ten
+3,1000,10,1,Ten by Thirty
+2,1200,4,0,Ten by Ten
+3,1400,9,0,Ten by Twenty
+3,1600,9,0,Ten by Twenty
+1,1800,8,0,Five by Fifteen
+3,2000,9,1,Ten by Thirty
+4,2200,10,0,Ten by Thirty
+4,2400,8,1,Ten by Thirty
+4,2600,1,0,Ten by Twenty
+1,3000,3,0,Ten by Ten
+2,3250,3,1,Ten by Twenty
+4,3500,2,0,Ten by Thirty
+5,3750,7,1,Multiple Units Required
+6,4000,7,0,Multiple Units Required
+6,3600,7,0,Multiple Units Required
+7,4000,9,1,Multiple Units Required
+8,4400,10,0,Multiple Units Required
