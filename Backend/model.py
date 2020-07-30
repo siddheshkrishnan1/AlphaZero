@@ -2,12 +2,9 @@ import pandas as pd
 from sklearn import metrics
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import 
-from sklearn.externals import joblib
+import joblib
 
-
-
-data = pd.read_csv("/Users/siddh1/Documents/SummerHacks/dataFurniture.csv")
+data = pd.read_csv("/Users/siddh1/Documents/SummerHacks/Backend/dataFurniture.csv")
 
 X = data.drop(['space_req'], axis=1)
 y = data['space_req']
@@ -24,10 +21,10 @@ logreg.fit(X, y)
 y_pred = logreg.predict(X)
 
 joblib.dump(logreg, 'model.pkl')
-print("Model dumped!")
+print("Model dumped")
 
 logreg = joblib.load('model.pkl')
 
-model_columns = list(x.columns)
+model_columns = list(X.columns)
 joblib.dump(model_columns, 'model_columns.pkl')
-print("Models columns dumped!")
+print("Models columns dumped")
