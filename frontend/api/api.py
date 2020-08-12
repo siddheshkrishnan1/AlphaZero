@@ -1,12 +1,21 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import math, random
+import traceback
+import joblib
+import pandas as pd
+import numpy as np
+import sys
+import sqlite3, json
 
 app = Flask(__name__)
 CORS(app)
+
+
 @app.route('/')
 def homepage():
-    return "This is the homepage"
+   return "this is the homepage"
+
 
 @app.route('/test', methods=['POST'])
 def get_page_name():
@@ -25,11 +34,28 @@ def get_page_name():
 
             prediction = list(lr.predict(query))
 
-            return jsonify({'prediction': str(prediction)})
+            with sqlite3.connect("furniture1.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO Response(rooms,size,packed,accessible) VALUES ( ?, ?, ?, ?);", tuple(json_))
+                con.commit()
+                msg = "furniture data inserted to table"
+                print(msg)
+
+            return jsonify({'prediction': str(prediction), 'data': msg})
 
         except:
 
             return jsonify({'trace': traceback.format_exc()})
     else:
         return ('No model here to use')
-    #return {'name': "Storage Calculator"};
+
+   
+   
+if __name__ == "__main__":
+       app.run(debug = True)
+   
+   
+   
+   
+   
+   

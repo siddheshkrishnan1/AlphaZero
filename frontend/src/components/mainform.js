@@ -20,7 +20,8 @@ export class Mainform extends Component {
             size: 0,
             hoard: 0,
             access: "",
-            flaskData: ""
+            flaskData: "",
+            test: ""
         }
         this.changeFlask = this.changeFlask
     }
@@ -37,11 +38,12 @@ export class Mainform extends Component {
 
     handleSubmit = () => {
         console.log(this.state)
-        
-        axios.post('/test', this.state)
+        let arr = [this.state.rooms,this.state.size,this.state.hoard,this.state.access]
+        console.log(arr)
+        axios.post('/test', arr)
             .then(response => {
-                this.setState({flaskData: response.data})
-                console.log(this.state.flaskData)
+                this.setState({test: response.data})
+                console.log(this.state.test)
 
             })
             .catch(error => {
