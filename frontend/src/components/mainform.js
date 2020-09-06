@@ -44,6 +44,7 @@ export class Mainform extends Component {
             .then(response => {
                 this.setState({test: response.data})
                 console.log(this.state.test)
+                this.setState({flaskData: '5x5'})
 
             })
             .catch(error => {
